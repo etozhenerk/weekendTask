@@ -29,7 +29,7 @@ function render() {
 function getPrompt(message, item) {
   let result = prompt(message);
   if(result !== null){
-    if (result.split(" ").length - 1 > 0) {
+    if (result.split(" ").length - 1 > 0 || result.trim() === "") {
       getPrompt(`Введите ${item}, он должен быть без пробелов`, item);
     }
     return result;
@@ -38,7 +38,7 @@ function getPrompt(message, item) {
 
 function getUser() {
   let name = prompt("Введите через пробел Имя и Фамилию");
-  if (name === null || name.split(" ").length - 1 > 1) {
+  if (name === null || name.split(" ").length - 1 > 1 || name.trim() === "") {
     alert("Ошибка");
     return;
   } else {
